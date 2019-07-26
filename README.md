@@ -56,9 +56,6 @@ or
 BiocManager::install(packagename)
 ```
 
-#### Reference file
-All the reference files used for fastq trimming and PAS clean are stored in REF/ folder
-
 ### Optional Requirements
 Although the PASs indetification and clean are using bam files as input, this toolkit also provide scripts to handel the raw fastq files from Quan-Seq REV.
 The following packages are used for QC, trimming and mapping:
@@ -76,9 +73,14 @@ https://github.com/alexdobin/STAR
 https://lomereiter.github.io/sambamba
 
 
+### Reference file
+All the reference files used for fastq trimming and PAS clean are stored in REF/ folder
 
-
-
+## Quick Start
+The toolkit contains a shell scripts can simply run all steps in one shot aftering setting the path:
+```
+./raw.pip.example.sh
+```
 
 
 ### Sample file
