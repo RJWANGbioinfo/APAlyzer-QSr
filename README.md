@@ -168,6 +168,17 @@ The output of the toolkits convering different files in different folders:
 
 
 ## Run-the-Toolkit-Step-by-Step
+#### QC check, trimming and mapping Quan-Seq REV
+```
+python step1_2_3.QC_and_mapping.qcREV.py \
+				--rootdir ROOTPATH  \
+				--project PRJNAME  \
+				--genodir GENOMEPATH  \
+				--refdir REFPATH  \
+				--threads NUM
+```
+
+
 
 A file named as "sample_list.txt", which is a tab separated file containing 4 colums: 'Run', 'LibraryLayout', 'samplename', 'condition'.
 'Run' is SRA ID for each sample usually start with "SRR". 

@@ -13,7 +13,7 @@
 #                --refdir(required) <path_to_your_ref_dir>; define the reference dir (ref sequences for trim);#                
 #                --threads(required) <# of threads>; define # of threads;
 #
-# REQUIREMENTS: Pythod_Modules as 'import section'; "STAR" as RNAseq mapper; sambamba; RSeQ;
+# REQUIREMENTS: Pythod_Modules as 'import section'; "STAR" as RNAseq mapper; sambamba;
 #
 #       AUTHOR: Ruijia Wang  rjwang.bioinfo@gmail.com
 #      ADVISOR: Bin Tian     btian@njms.rutgers.edu
