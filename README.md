@@ -150,6 +150,22 @@ Sample file are only need when Reps='YES'. This file is a two-column table conta
 | TRT2_rep1 | COM2_TRT |
 | TRT2_rep2 | COM2_TRT |
 
+### Output
+The output of the toolkits convering different files in different folders:
+| File | Folder | Folder |
+| --- | --- | --- |
+| NT1_rep1 | COM1_NT | COM1_NT |
+| NT1_rep2 | COM1_NT | COM1_NT |
+| TRT1_rep1 | COM1_TRT | COM1_NT |
+| TRT1_rep2 | COM1_TRT | COM1_NT |
+| NT2_rep1 | COM2_NT | COM1_NT |
+| NT2_rep2 | COM2_NT | COM1_NT |
+| TRT2_rep1 | COM2_TRT | COM1_NT |
+| TRT2_rep2 | COM2_TRT | COM1_NT |
+
+
+
+
 A file named as "sample_list.txt", which is a tab separated file containing 4 colums: 'Run', 'LibraryLayout', 'samplename', 'condition'.
 'Run' is SRA ID for each sample usually start with "SRR". 
 'LibraryLayout' define the sequencing library type: 'SINGLE' is single-end; PAIRED' is pair-end. 
