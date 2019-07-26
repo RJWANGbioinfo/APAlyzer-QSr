@@ -82,36 +82,55 @@ The toolkit contains a shell scripts can simply run all steps in one shot afteri
 ./raw.pip.example.sh
 ```
 And a expample of path setting in the shell:
+
+##### Define the number of threads will be used
 ```
-#Define the number of threads will be used
 THREADS=24
+```
 
-#Define the path of the APAlyzer_qrev
-scrdir=/xxx/APAlyzer_qrev/	
+##### Define the path of the APAlyzer_qrev
+```
+scrdir=/xxx/APAlyzer_qrev/
+```	
 
-#Define project name				
+##### Define project name
+```				
 project=project1	
+```
 
-#Define path of the rootdir, usually your project-dir will be rootdir/project/ 				
-rootdir=/xxx/my_rootdir/	
+##### Define path of the rootdir, usually your project-dir will be rootdir/project/
+``` 				
+rootdir=/xxx/my_rootdir/
+```	
 
-#Define the genmoe version; mm9, hg19, or rn5				
+##### Define the genmoe version; mm9, hg19, or rn5	
+```			
 geno=mm9		
+```
 
-#Define path of the gemome folder used for STAR mapping 			
+##### Define path of the gemome folder used for STAR mapping 
+```			
 genodir=/xxx/genome/mm9_star/
+```
 
-#Define path of the REF folder containing reference files 					
-refdir=/xxx/REF/					
+##### Define path of the REF folder containing reference files 
+```					
+refdir=/xxx/REF/		
+```			
 
-# 'YES' or 'NO'; setting whether the analysis design is single sample or multiple replicates
+##### Define the analysis design; 'YES' or 'NO'; setting whether the analysis design is single sample or multiple replicates
+```
 Reps='YES' 											
 samplefile=/xxx/Samples/sample_list.txt	  # Only need when Reps='YES'	
+```
 
-#Define the treat groups			
+##### Define the treat groups
+```			
 treats="COM1_NT COM2_NT"
+```
 
-#Define the control groups
+##### Define the control groups
+```
 controls="COM1_TRT COM2_TRT"
 ```
 Using the setting above, we can analysis a mouse mm9 dataset, and compare the APA in "COM1_TRT" vs "COM1_NT", and "COM2_TRT" vs "COM2_NT".
