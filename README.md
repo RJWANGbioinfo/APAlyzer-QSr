@@ -5,7 +5,7 @@
   * [License](#License)
   * [Languages](#Languages)  
 - [Requirements](#Requirements)
-- [Optional Requirements](#Optional Requirements)
+- [Quick Start](#Quick-Start)
 - [Run-the-pipline](#Run-the-pipline)
 - [Output](#Output) 
 - [Quick-start-example](#Quick-start-example) 
@@ -76,7 +76,7 @@ https://lomereiter.github.io/sambamba
 ### Reference file
 All the reference files used for fastq trimming and PAS clean are stored in REF/ folder
 
-## Quick Start
+## Quick-Start
 The toolkit contains a shell scripts can simply run all steps in one shot aftering setting the path:
 ```
 ./raw.pip.example.sh
