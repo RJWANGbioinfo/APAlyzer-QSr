@@ -119,6 +119,7 @@ Using the setting above, we can analysis a mouse mm9 dataset, and compare the AP
 
 ### Sample file
 Sample file are only need when Reps='YES'. This file is a two-column table contain the information of the sample and group. For instance, in the above case, the sample file should looks like:
+
 | Sample | Group |
 | --- | --- |
 | NT1_rep1 | COM1_NT |
