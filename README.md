@@ -115,6 +115,8 @@ treats="COM1_NT COM2_NT"
 controls="COM1_TRT COM2_TRT"
 ```
 
+
+
 ### Sample file
 A file named as "sample_list.txt", which is a tab separated file containing 4 colums: 'Run', 'LibraryLayout', 'samplename', 'condition'.
 'Run' is SRA ID for each sample usually start with "SRR". 
