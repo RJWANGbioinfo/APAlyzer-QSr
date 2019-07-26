@@ -84,14 +84,14 @@ The toolkit contains a shell scripts can simply run all steps in one shot afteri
 And a expample of path setting in the shell:
 ```
 THREADS=24   #Define the number of threads will be used
-scrdir=/xxx/APAlyzer_qrev/   #Define the path of the APAlyzer_qrev
-project=project1			#Define project name
-rootdir=/xxx/my_rootdir/	#Define path of the rootdir, usually your project-dir will be rootdir/project/ 
-geno=mm9					#Define the genmoe version; mm9, hg19, or rn5
-genodir=/xxx/genome/mm9_star/	#Define path of the gemome folder used for STAR mapping 
-refdir=/xxx/REF/			#Define path of the REF folder containing reference files 
+scrdir=/xxx/APAlyzer_qrev/   							#Define the path of the APAlyzer_qrev
+project=project1										#Define project name
+rootdir=/xxx/my_rootdir/								#Define path of the rootdir, usually your project-dir will be rootdir/project/ 
+geno=mm9												#Define the genmoe version; mm9, hg19, or rn5
+genodir=/xxx/genome/mm9_star/							#Define path of the gemome folder used for STAR mapping 
+refdir=/xxx/REF/										#Define path of the REF folder containing reference files 
 
-Reps='YES'  # 'YES' or 'NO'; setting whether the analysis design is single sample or multiple replicates
+Reps='YES'  											# 'YES' or 'NO'; setting whether the analysis design is single sample or multiple replicates
 samplefile=/xxx/Samples/sample_list.txt
 treats="COM1_NT COM2_NT"
 controls="COM1_TRT COM2_TRT"
