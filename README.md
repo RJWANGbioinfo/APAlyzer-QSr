@@ -114,10 +114,23 @@ treats="COM1_NT COM2_NT"
 #Define the control groups
 controls="COM1_TRT COM2_TRT"
 ```
-
+Using the setting above, we can analysis a mouse mm9 dataset, and compare the APA in "COM1_TRT" vs "COM1_NT", and "COM2_TRT" vs "COM2_NT".
 
 
 ### Sample file
+Sample file are only need when Reps='YES'. This file is a two-column table contain the information of the sample and group. For instance, in the above case, the sample file should looks like:
+```
+Sample	Group
+NT1_rep1	COM1_NT
+NT1_rep2	COM1_NT
+TRT1_rep1	COM1_TRT
+TRT1_rep2	COM2_TRT
+NT2_rep1	COM2_NT
+NT2_rep2	COM2_NT
+TRT2_rep1	COM2_TRT
+TRT2_rep2	COM2_TRT
+```
+
 A file named as "sample_list.txt", which is a tab separated file containing 4 colums: 'Run', 'LibraryLayout', 'samplename', 'condition'.
 'Run' is SRA ID for each sample usually start with "SRR". 
 'LibraryLayout' define the sequencing library type: 'SINGLE' is single-end; PAIRED' is pair-end. 
