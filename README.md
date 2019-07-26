@@ -24,6 +24,9 @@ This project is licensed under the LGPL-3 License.
 ### Languages
 Python 3 and R
 
+### Supported Genome
+Genomes that covered by PolyA DB3 including mm9, hg19 and rn5.
+
 ## Requirements
 ### Python Modules
 numpy
@@ -53,14 +56,28 @@ or
 BiocManager::install(packagename)
 ```
 
+### Optional Requirements
+Although the PASs indetification and clean are using bam files as input, this toolkit also provide scripts to handel the raw fastq files from Quan-Seq REV.
+The following packages are used for QC, trimming and mapping:
+
+### FastQC for quality control
+https://www.bioinformatics.babraham.ac.uk/projects/fastqc
+
+### BBmap for trimming
+https://sourceforge.net/projects/bbmap/
 
 ### STAR as RNAseq mapper
 https://github.com/alexdobin/STAR
 
+### Sambamba for bam converting
+https://lomereiter.github.io/sambamba
+
+### Reference file
+All the reference files used for fastq trimming and PAS clean are stored in REF/ folder
 
 
-### RSeQ
-http://rseqc.sourceforge.net
+
+
 
 ### Sample file
 A file named as "sample_list.txt", which is a tab separated file containing 4 colums: 'Run', 'LibraryLayout', 'samplename', 'condition'.
