@@ -26,7 +26,6 @@ Python 3 and R
 
 ### Supported Genome
 Genomes that covered by PolyA DB3 including mm9, hg19 and rn5.
-##
 
 
 ## Requirements
@@ -57,6 +56,7 @@ or
 ```
 BiocManager::install(packagename)
 ```
+
 
 ### Optional Requirements
 Although the PASs indetification and clean are using bam files as input, this toolkit also provide scripts to handel the raw fastq files from Quan-Seq REV.
@@ -151,6 +151,7 @@ Sample file are only need when Reps='YES'. This file is a two-column table conta
 | NT2_rep2 | COM2_NT |
 | TRT2_rep1 | COM2_TRT |
 | TRT2_rep2 | COM2_TRT |
+
 
 ## Output
 The output of the toolkits convering different files in different folders:
