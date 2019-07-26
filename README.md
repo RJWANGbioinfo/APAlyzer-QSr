@@ -77,7 +77,7 @@ https://lomereiter.github.io/sambamba
 All the reference files used for fastq trimming and PAS clean are stored in REF/ folder
 
 ## Quick-Start
-The toolkit contains a shell scripts can simply run all steps in one shot aftering setting the path:
+The toolkit contains a shell scripts can simply run all steps in one shot aftering setting the path. You can first put all the fastq files under rootdir/project/rawfastq/, then run:
 ```
 ./raw.pip.example.sh
 ```
@@ -150,19 +150,18 @@ Sample file are only need when Reps='YES'. This file is a two-column table conta
 | TRT2_rep1 | COM2_TRT |
 | TRT2_rep2 | COM2_TRT |
 
-### Output
+## Output
 The output of the toolkits convering different files in different folders:
 
 | File | Folder | Note |
 | --- | --- | --- |
-| bam file | COM1_NT | mapping file |
-| NT1_rep2 | COM1_NT | COM1_NT |
-| TRT1_rep1 | COM1_TRT | COM1_NT |
-| TRT1_rep2 | COM1_TRT | COM1_NT |
-| NT2_rep1 | COM2_NT | COM1_NT |
-| NT2_rep2 | COM2_NT | COM1_NT |
-| TRT2_rep1 | COM2_TRT | COM1_NT |
-| TRT2_rep2 | COM2_TRT | COM1_NT |
+| QC file | rootdir/project/qccheck/ | fastq QC results |
+| trimmed fq file | rootdir/project/fastq/ | mapping file |
+| bam file | rootdir/project/rawsam/ | mapping file |
+| mapping summary | rootdir/project/tbl/ | mapping summary |
+| 3'UTR APA results | rootdir/project/tbl/3UTR | tables of 3'UTR APA |
+| Upstream APA results | rootdir/project/tbl/UPS | tables of UPS APA |
+| Scatter plots of 3'UTR and UPS APA | rootdir/project/plot/ | scatter plots (.png) |
 
 
 
