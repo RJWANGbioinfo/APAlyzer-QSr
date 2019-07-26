@@ -7,8 +7,7 @@
 - [Requirements](#Requirements)
 - [Quick Start](#Quick-Start)
 - [Output](#Output)
-- [Run-the-pipline](#Run-the-pipline)
-- [Output](#Output) 
+- [Run the Toolkit Step by Step](#Run-the-Toolkit-Step-by-Step)
 - [Quick-start-example](#Quick-start-example) 
 
 
