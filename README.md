@@ -28,7 +28,7 @@ Python 3 and R
 Genomes that covered by PolyA DB3 including mm9, hg19 and rn5.
 
 ## Requirements
-### Python Modules
+* Python Modules
 numpy
 pandas
 pylab
@@ -41,7 +41,7 @@ All these can be install through
 pip install packagename
 ```
 
-### R library
+* R library
 GenomicRanges
 Biostrings
 dplyr
