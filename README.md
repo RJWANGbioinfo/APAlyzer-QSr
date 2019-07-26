@@ -152,9 +152,10 @@ Sample file are only need when Reps='YES'. This file is a two-column table conta
 
 ### Output
 The output of the toolkits convering different files in different folders:
-| File | Folder | Folder |
+
+| File | Folder | Note |
 | --- | --- | --- |
-| NT1_rep1 | COM1_NT | COM1_NT |
+| bam file | COM1_NT | mapping file |
 | NT1_rep2 | COM1_NT | COM1_NT |
 | TRT1_rep1 | COM1_TRT | COM1_NT |
 | TRT1_rep2 | COM1_TRT | COM1_NT |
