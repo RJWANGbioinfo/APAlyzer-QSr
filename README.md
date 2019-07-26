@@ -167,7 +167,7 @@ The output of the toolkits convering different files in different folders:
 | Scatter plots of 3'UTR and UPS APA | rootdir/project/plot/ | scatter plots (.png) |
 
 
-
+## Run-the-Toolkit-Step-by-Step
 
 A file named as "sample_list.txt", which is a tab separated file containing 4 colums: 'Run', 'LibraryLayout', 'samplename', 'condition'.
 'Run' is SRA ID for each sample usually start with "SRR". 
