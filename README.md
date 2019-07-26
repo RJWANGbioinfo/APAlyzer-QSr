@@ -28,7 +28,7 @@ Python 3 and R
 Genomes that covered by PolyA DB3 including mm9, hg19 and rn5.
 
 ## Requirements
-* Python Modules
+##### Python Modules
 numpy
 pandas
 pylab
@@ -41,7 +41,7 @@ All these can be install through
 pip install packagename
 ```
 
-* R library
+##### R library
 GenomicRanges
 Biostrings
 dplyr
@@ -56,23 +56,23 @@ or
 BiocManager::install(packagename)
 ```
 
-### Optional Requirements
+##### Optional Requirements
 Although the PASs indetification and clean are using bam files as input, this toolkit also provide scripts to handel the raw fastq files from Quan-Seq REV.
 The following packages are used for QC, trimming and mapping:
 
-### FastQC for quality control
+##### FastQC for quality control
 https://www.bioinformatics.babraham.ac.uk/projects/fastqc
 
-### BBmap for trimming
+##### BBmap for trimming
 https://sourceforge.net/projects/bbmap/
 
-### STAR as RNAseq mapper
+##### STAR as RNAseq mapper
 https://github.com/alexdobin/STAR
 
-### Sambamba for bam converting
+##### Sambamba for bam converting
 https://lomereiter.github.io/sambamba
 
-### Reference file
+##### Reference file
 All the reference files used for fastq trimming and PAS clean are stored in REF/ folder
 
 
