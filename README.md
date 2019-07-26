@@ -44,31 +44,18 @@ Biostrings
 dplyr
 GenomicAlignments
 
-
-### Pythod_Modules as 'import section' 
-Pythod modules can be found in in all_steps.RNAseq_APA.pip.py
-
-### APAlyzer in bioconductor 
+All these can be install through
 ```
-R CMD INSTALL APAlyzer.tar.gz
+install.packages(packagename)
 ```
+or
+```
+BiocManager::install(packagename)
+```
+
 
 ### STAR as RNAseq mapper
 https://github.com/alexdobin/STAR
-
-### SRA toolkit
-https://www.ncbi.nlm.nih.gov/sra/docs/toolkitsoft/
-
-
-Add it to the .bashrc
-```
-# added path of sra toolkits
-export PATH="/scratch/PATH_TO_THE/sratoolkit.2.8.2-1-centos_linux64/bin:$PATH"
-```
-Config the tools:
-```
-./vdb-config -i
-```
 
 
 
