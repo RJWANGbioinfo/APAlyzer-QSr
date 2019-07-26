@@ -1,13 +1,13 @@
 #!/bin/bash
 ###user setting section###
 THREADS=24
-scrdir=/project/umw_ruijia_wang/Piplines/APAlyzer_qrev/
-project=APAlyzer_qrev
-rootdir=/project/umw_ruijia_wang/Package/
-genodir=/project/umw_ruijia_wang/genome/mm9_star/
-refdir=/project/umw_ruijia_wang/Piplines/REF/
+scrdir=/xxx/APAlyzer_qrev/
+project=project1
+rootdir=/xxx/my_rootdir/
+genodir=/xxx/genome/mm9_star/
+refdir=/xxx/REF/
 geno=mm9
-samplefile=/project/umw_ruijia_wang/Package/APAlyzer_qrev/sample_list.txt
+samplefile=/xxx/Samples/sample_list.txt
 Reps='YES'  # 'YES' or 'NO'
 treats="COM1_NT COM2_NT"
 controls="COM1_TRT COM2_TRT"
