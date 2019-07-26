@@ -1,7 +1,6 @@
 # APAlyzer-QSr: APA analysis toolkit for Quant-Seq REV
 
 - [Overview](#Overview)
-  * [Feature](#Version-feature)
   * [Authors](#Authors)
   * [License](#License)
   * [Languages](#Languages)  
