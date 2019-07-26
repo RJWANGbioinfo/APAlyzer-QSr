@@ -1,4 +1,4 @@
-# GEO RNA-seq APA profiler: Automatic pipline profiling APA,IPA and gene expression using RNAseq data from GEO
+# APAlyzer-QSr: APA analysis toolkit for Quant-Seq REV
 
 - [Overview](#Overview)
   * [Feature](#Version-feature)
@@ -12,12 +12,7 @@
 
 
 ## Overview
-GEO RNA-seq APA profiler is a automatic pipline performing APA,IPA and gene expression profiling using RNAseq data from GEO. In general it uses SRA toolkit, STAR, and APAanalizer to finished the entire work.
-
-### Version feature
-1) RNA-seq sample is processed one by one to address the issues of sequencing library diversity. E.g, within a GEO project, some samples are pair-end, some are single-end, some are forward sequencing, some are reverse sequencing. 
-2) Added a extra check section to address the downloading failed issues.
-3) User now can select whether to keep the raw fastq and bam files.
+APAlyzer-QSr is a automatic toolkit performing APA analysis using Quant-Seq REV data. In general it uses PolyA DB3 to clean the PASs indetified from the sequencing data.
 
 ### Authors
 * **Ruijia Wang**
@@ -27,12 +22,31 @@ GEO RNA-seq APA profiler is a automatic pipline performing APA,IPA and gene expr
 This project is licensed under the LGPL-3 License.
 
 ### Languages
-Python 2.7 and R 3.5.0
+Python 3 and R
 
 ## Requirements
+### Python Modules
+numpy
+pandas
+pylab
+scipy
+HTSeq
+matplotlib
+
+All these can be install through
+```
+pip install packagename
+```
+
+### R library
+GenomicRanges
+Biostrings
+dplyr
+GenomicAlignments
+
 
 ### Pythod_Modules as 'import section' 
-The required pythod modules can be found in in all_steps.RNAseq_APA.pip.py
+Pythod modules can be found in in all_steps.RNAseq_APA.pip.py
 
 ### APAlyzer in bioconductor 
 ```
