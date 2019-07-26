@@ -168,7 +168,7 @@ The output of the toolkits convering different files in different folders:
 
 
 ## Run-the-Toolkit-Step-by-Step
-#### QC check, trimming and mapping Quan-Seq REV
+#### 1. QC check, trimming and mapping Quan-Seq REV
 ```
 python step1_2_3.QC_and_mapping.qcREV.py \
 				--rootdir ROOTPATH  \
@@ -178,6 +178,10 @@ python step1_2_3.QC_and_mapping.qcREV.py \
 				--threads NUM
 ```
 
+#### 3. Identify the 3' End Alignment Position
+```
+python step5.LAP.hunter.qcREV.py
+```
 
 
 A file named as "sample_list.txt", which is a tab separated file containing 4 colums: 'Run', 'LibraryLayout', 'samplename', 'condition'.
