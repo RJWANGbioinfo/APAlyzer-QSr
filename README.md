@@ -6,9 +6,10 @@
   * [Languages](#Languages)  
 - [Requirements](#Requirements)
 - [Quick Start](#Quick-Start)
+- [Path setting example](#Path-setting-example)
 - [Output](#Output)
 - [Run the Toolkit Step by Step](#Run-the-Toolkit-Step-by-Step)
-- [Quick-start-example](#Quick-start-example) 
+
 
 
 ## Overview
@@ -83,6 +84,8 @@ The toolkit contains a shell scripts can simply run all steps in one shot afteri
 ```
 ./raw.pip.example.sh
 ```
+
+## Path-setting-example
 And a expample of path setting in the shell:
 
 ##### 1)Define the number of threads will be used
