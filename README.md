@@ -90,9 +90,9 @@ And a expample of path setting in the shell:
 THREADS=24
 ```
 
-##### 2)Define the path of the APAlyzer_qrev
+##### 2)Define the path of the 'scripts' folder in APAlyzer_qrev
 ```
-scrdir=/xxx/APAlyzer_qrev/
+scrdir=/xxx/APAlyzer_qrev/scripts/
 ```	
 
 ##### 3)Define project name
@@ -159,18 +159,19 @@ The output of the toolkits convering different files in different folders:
 | File | Folder | Note |
 | --- | --- | --- |
 | QC file | rootdir/project/qccheck/ | fastq QC results |
-| trimmed fq file | rootdir/project/fastq/ | mapping file |
-| bam file | rootdir/project/rawsam/ | mapping file |
-| mapping summary | rootdir/project/tbl/ | mapping summary |
-| 3'UTR APA results | rootdir/project/tbl/3UTR | tables of 3'UTR APA |
-| Upstream APA results | rootdir/project/tbl/UPS | tables of UPS APA |
-| Scatter plots of 3'UTR and UPS APA | rootdir/project/plot/ | scatter plots (.png) |
+| *.clipped.fastq | rootdir/project/fastq/ | trimmed fq file |
+| *.sorted.bam | rootdir/project/rawsam/ | mapping bam file |
+| mapping.summary.txt | rootdir/project/tbl/ | mapping summary |
+| *.pA2gene_usage.DRPM.fix.tbl | rootdir/project/tbl/ | PAS expression profile |
+| 3mostAPA.*.DRPM.fix.tbl | rootdir/project/tbl/3UTR/ | 3'UTR APA results |
+| UPS.*.cut2.tbl | rootdir/project/tbl/UPS/ | Upstream APA results |
+| *.png | rootdir/project/plot/ | Scatter plots of 3'UTR and UPS APA |
 
 
 ## Run-the-Toolkit-Step-by-Step
 #### 1. QC check, trimming and mapping Quan-Seq REV
 ```
-python step1_2_3.QC_and_mapping.qcREV.py \
+python scripts/step1_2_3.QC_and_mapping.qcREV.py \
 				--rootdir ROOTPATH  \
 				--project PRJNAME  \
 				--genodir GENOMEPATH  \
@@ -178,72 +179,43 @@ python step1_2_3.QC_and_mapping.qcREV.py \
 				--threads NUM
 ```
 
+#### 2. Summary mapping results
+```
+python scripts/step4.STAR_log_summarizer.qcREV.py --rootdir ROOTPATH --project PRJNAME
+```
+
 #### 3. Identify the 3' End Alignment Position
 ```
-python step5.LAP.hunter.qcREV.py
+python scripts/step5.LAP.hunter.qcREV.py --rootdir ROOTPATH --project PRJNAME
+```
+
+#### 4. Clean PASs using PolyA DB3
+```
+Rscript scripts/step6_1.LAP2PAS.R $rootdir $project $refdir $geno
+```
+
+#### 5. Annotation of cleaned PAS
+```
+Rscript scripts/step6_2.Quant_R.pas2gene.builder.R $rootdir $project $refdir $geno
+```
+
+#### 6. Analysis of 3'UTR APA and upstream APA (no replicate design)
+```
+python scripts/step7_1.qcREV.3UTR.APA.tbler.norep.py --project $project --rootdir $rootdir --genome $geno --control $controls --treatment $treats
+python scripts/step7_2.qcREV.UR.APA.tbler.norep.py --project $project --rootdir $rootdir --genome $geno --control $controls --treatment $treats
+
 ```
 
 
-A file named as "sample_list.txt", which is a tab separated file containing 4 colums: 'Run', 'LibraryLayout', 'samplename', 'condition'.
-'Run' is SRA ID for each sample usually start with "SRR". 
-'LibraryLayout' define the sequencing library type: 'SINGLE' is single-end; PAIRED' is pair-end. 
-'samplename' define the really sample name of this file, e.g., 'KD_GENE_REP1' is the samplename of SRR12345.
-'condition' define group name of the sample, for example, 'KD' or 'NT'. The information of each sample can be easily obtained from EBI (https://www.ebi.ac.uk/ena/browse).
-
-## Run-the-pipline
-To run the pipline a) put .py and .R file into sample folder, and b) put all the reference file in the same folder (e.g., the REF folder)
+#### 6. Analysis of 3'UTR APA and upstream APA (replicate design)
 ```
-python all_steps.RNAseq_APA.pip.py --rootdir ROOTPATH  \
-				--project PRJNAME  \
-				--sradir SRAPATH  \
-				--genodir GENOMEPATH  \
-				--refdir REFPATH  \
-				--genome GENO  \
-				--KEEPRAW NO  \
-				--threads NUM
+python scripts/step7_1.qcREV.3UTR.APA.tbler.norep.py $rootdir $project $samplefile $geno "$treats" "$controls"
+python scripts/step7_2.qcREV.UR.APA.tbler.norep.py $rootdir $project $samplefile $geno "$treats" "$controls"
+
 ```
 
-About the options:
+#### 7. Plot 3'UTR APA and UPS APA pattern using scatter plots
 ```
---project(required); define the project name, e.g., GEO123456
---rootdir(required); define the rootdir, e.g., /scratch/user/  
---sradir(required); define the sra dir (~/sra/sra/), e.g., /scratch/user/soft/sra/srt
---genodir(required); define the gemome dir for mapping, e.g., /scratch/xxxx/genomes/mm9_star
---refdir(required); define the ref dir; this dir should contain all the reference files, correspoding files of mm9 and hg19 have been store in REF/                
---threads(required); define # of threads, e.g., 24
---genome(Optional); define genome version, e.g., hg19, default is mm9
---KEEPRAW(Optional); whether keep the downloaded fastq and bam files; default is NO, if set to YES, then the fastq and bam files will be store at rootdir/project/KEEPRAW/
+python scripts/step8_1.qcREV.3UTR.scatter.plotter.py --project $project --rootdir $rootdir --control $controls --treatment $treats
+python scripts/step8_2.qcREV.UPS.scatter.plotter.py --project $project --rootdir $rootdir --control $controls --treatment $treats
 ```
-
-Note: 
-"sample_list.txt" MUST be put into rootdir/project/ 
-
-## Output
-In general, rootdir/project/ is the overall output folder.
-The combine results will be stored in "report" folder, including a expression file ".CDS.allsample.txt", a 3'UTR APA file ".UTR.allsample.txt", and a IPA file ".IPA_LE.allsample.txt"
-The correspoding files for each sample are stored in "rawout" folder.
-
-## Quick-start-example
-Let's try a really mouse RNA-seq case in GEO(GSE112698). First creat the project folder and put the sample_list.txt in to the project folder:
-```
-cd /scratch/your_account/
-mkdir GSE112698
-```
-
-Then start to run the pipline use Rutgers-Perceval with 24 threads:
-```
-python all_steps.RNAseq_APA.pip.py --rootdir /scratch/your_account/  \
-				--project GSE112698  \
-				--sradir /scratch/your_account/sra/sra/  \
-				--genodir /scratch/xxxx/genomes/mm9_star/  \
-				--refdir /scratch/your_account/REF/  \
-				--genome mm9  \
-				--KEEPRAW NO  \
-				--threads 24
-```
-
-The combine results can be found in "/scratch/your_account/GSE112698/report" folder, including:
-
-"GSE112698.CDS.allsample.txt", "GSE112698.UTR.allsample.txt", "GSE112698.IPA_LE.allsample.txt".
-
-The correspoding files for each sample are stored in "/scratch/your_account/GSE112698/rawout" folder.
