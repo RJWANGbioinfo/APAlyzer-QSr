@@ -1,8 +1,8 @@
 #===============================================================================
-#         FILE: LAP.hunter.reverse.py  
-#        USAGE: python LAP.hunter.reverse.py
+#         FILE: step5.LAP.hunter.qcREV  
+#        USAGE: python step5.LAP.hunter.qcREV
 #  DESCRIPTION: Automatically scan all the .Aligned.sortedByCoord.out.bam files in the target folder, 
-#				identify all the inital LAP loci, count # of reads support this loci, and plot it
+#				identify all the inital LAP loci, count # of reads support this loci
 #
 # REQUIREMENTS: Pythod_Modules as 'import section'
 #       AUTHOR: Ruijia Wang  rw479@njms.rutgers.edu
