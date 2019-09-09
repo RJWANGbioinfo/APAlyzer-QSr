@@ -79,7 +79,7 @@ dfENDdb=dfENDdb[!grepl("_random", dfENDdb$seqnames) & !grepl("BK000964", dfENDdb
 dfENDdb=dfENDdb[,-c(2:4)]
 colnames(dfENDdb)[1:3]=c('Chrom','Strand','LAPID')
 dfENDdb$LAPID=paste0(dfENDdb$Chrom, ':', dfENDdb$Pos, ':', dfENDdb$Strand)
-colnames(dfENDdb)[10]='Match'
+colnames(dfENDdb)[length(colnames(dfENDdb))]='Match'
 write.table(dfENDdb,"All_LAP2PAS.tbl", quote = FALSE, sep = "\t", row.names = FALSE, col.names = TRUE)
 
 
