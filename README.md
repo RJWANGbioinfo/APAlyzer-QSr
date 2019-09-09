@@ -212,8 +212,8 @@ python scripts/step7_2.qcREV.UR.APA.tbler.norep.py --project $project --rootdir 
 
 #### 6. Analysis of 3'UTR APA and upstream APA (replicate design)
 ```
-python scripts/step7_1.qcREV.3UTR.APA.tbler.norep.py $rootdir $project $samplefile $geno "$treats" "$controls"
-python scripts/step7_2.qcREV.UR.APA.tbler.norep.py $rootdir $project $samplefile $geno "$treats" "$controls"
+Rscript scripts/step7_1.qcREV.3UTR.APA.tbler.reps.R $rootdir $project $samplefile $geno "$treats" "$controls"
+Rscript scripts/step7_2.qcREV.UR.APA.tbler.reps.R $rootdir $project $samplefile $geno "$treats" "$controls"
 
 ```
 
