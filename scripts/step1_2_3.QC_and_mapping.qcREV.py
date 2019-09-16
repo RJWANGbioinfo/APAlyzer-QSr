@@ -119,7 +119,7 @@ for sample in samples:
 	print("-------- Step3 mapping fastq files:"+sample+" --------")	
 	samplefq=fqmdir+sample+'.clipped.fastq'
 	samplesam=samoutdir+sample+'.Aligned.out.sam'
-	samplebam=samoutdir+sample+'sample.sorted.bam'
+	samplebam=samoutdir+sample+'.sorted.bam'
 	cmd3='STAR --runThreadN '+CPUS+' --genomeDir '+genoDir+\
 	' --outFilterType BySJout --outFilterMultimapNmax 20 --alignSJoverhangMin 8 --alignSJDBoverhangMin 1 '+\
 	'-outFilterMismatchNmax 999 --outFilterMismatchNoverLmax 0.1 --outSAMmultNmax 1 --alignIntronMin 20 '+\
