@@ -78,6 +78,8 @@ def UTR_UPDN(datain, treat, control):
 		sample=sample.replace('DRPM_','')
 		datain_combine['Abn_'+sample+'_pA1']=datain_combine[pA1]/(datain_combine[pA2]+datain_combine[pA1])
 		datain_combine['Abn_'+sample+'_pA2']=datain_combine[pA2]/(datain_combine[pA2]+datain_combine[pA1])
+		datain_combine['RE_'+sample]=datain_combine[pA2]/datain_combine[pA1]
+		
 	datain_combine['Delta_RA']=datain_combine['Abn_'+treat+'_pA1']-datain_combine['Abn_'+control+'_pA1']
 	datain_combine['p-value']=datain_combine[Rc_PA1COLS+Rc_PA2COLS].apply(calFisher,axis=1)
 	stauts='pA1.pAutype_'+treat+'_'+control
@@ -94,7 +96,8 @@ def UTR_UPDN(datain, treat, control):
 									'num_'+control+'_pA1', 'num_'+control+'_pA2',
 									'DRPM_'+control+'_pA1', 'DRPM_'+control+'_pA2',
 									'num_'+treat+'_pA1', 'num_'+treat+'_pA2',
-									'DRPM_'+treat+'_pA1', 'DRPM_'+treat+'_pA2',									
+									'DRPM_'+treat+'_pA1', 'DRPM_'+treat+'_pA2',	
+									'RE_'+control, 'RE_'+treat,									
 									'Log2Ratio_pA1','Log2Ratio_pA2','Delta_RA','p-value',stauts]]
 	datain_combine=datain_combine.assign(RED=datain_combine.Log2Ratio_pA2-datain_combine.Log2Ratio_pA1)								
 	return datain_combine, UPcount, DNcount

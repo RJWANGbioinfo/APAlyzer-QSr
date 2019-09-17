@@ -56,6 +56,15 @@ addUPDN<-function(data_dex_in, control_samples, treat_samples, cutoff, dfrpm){
   dfALL=merge(dfALL, dfrpm, by.x='pAid.pA2',by.y='pAid', sort = FALSE)
   names(dfALL) <- sub(".x$", ".pA1", sub(".y$", ".pA2", names(dfALL)))
   
+  subsamples=unique(c(treat_samples,control_samples))
+  for(subsample in subsamples)
+  {
+
+	subsamplePA1= c(paste0("DRPM_",subsample,".pA1"))
+	subsamplePA2= c(paste0("DRPM_",subsample,".pA2"))
+    subsampleRE= c(paste0("RE_",subsample))
+	dfALL[,subsampleRE]=log2(dfALL[,subsamplePA2]/dfALL[,subsamplePA1])
+  }
   
   ###calculate DeltaRA###
   control_col1=c(paste0("countData.num_",control_samples,".pA1"))
@@ -207,9 +216,10 @@ for(i in 1:length(sample_c))
 	names(data_run_part_out) = gsub('countData.num_','num_',names(data_run_part_out))
 	numbercol_PD=grep("^num_", colnames(data_run_part_out),value = TRUE)
 	RPMcol_PD= grep("^DRPM_", colnames(data_run_part_out),value = TRUE)
+	REcol_PD= grep("^RE_", colnames(data_run_part_out),value = TRUE)
 	dftblout=data_run_part_out[,c("groupID", "Pos.pA1", "Pos.pA2",
 	"pvalue.pA1",
-	numbercol_PD, RPMcol_PD, "Log2Ratio.pA1", "Log2Ratio.pA2",
+	numbercol_PD, RPMcol_PD,REcol_PD, "Log2Ratio.pA1", "Log2Ratio.pA2",
 	"Delta_RA", "type")]
 	dftblout$RED=dftblout$Log2Ratio.pA2-dftblout$Log2Ratio.pA1
 	names(dftblout)[1]="gene_symbol"
@@ -219,5 +229,4 @@ for(i in 1:length(sample_c))
 	names(dftblout)=gsub('.pA2','_pA2',names(dftblout))
 	write.table(dftblout, outputfile1, quote = FALSE, sep = "\t", row.names = FALSE, col.names = TRUE)
 }
-
 
