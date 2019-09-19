@@ -17,6 +17,7 @@ geno=args[4]
 sample_t=unlist(strsplit(as.character(args[5])," "))
 sample_c=unlist(strsplit(as.character(args[6])," "))
 
+
 setwd(rootdir)
 PASfile=paste0(rootdir,'/',project,"/tbl/",geno,".pA2gene_usage.DRPM.fix.tbl")
 
@@ -185,6 +186,10 @@ for(i in 1:length(sample_c))
 	data_rename_2$gene = paste(data_rename_2$gene_symbol, data_rename_2$col, sep = ":")
 	data_rename_2$genomicData = data_rename_2$pAid
 	data_rename_3 = data_rename_2[,c("gene","pAid")]
+	data_gene_info = dataraw[,c("gene_symbol","chromosome","strand")]
+	data_gene_info = data_gene_info[!duplicated(data_gene_info), ]
+	colnames(data_gene_info) = c("groupID","chromosome","strand")
+	
 	data_subset = data_rename_2[,c("gene","gene_symbol","col",grep("^num_", colnames(datall),value = TRUE))]
 
 	###Run DEXseq###
@@ -217,13 +222,14 @@ for(i in 1:length(sample_c))
 	numbercol_PD=grep("^num_", colnames(data_run_part_out),value = TRUE)
 	RPMcol_PD= grep("^DRPM_", colnames(data_run_part_out),value = TRUE)
 	REcol_PD= grep("^RE_", colnames(data_run_part_out),value = TRUE)
-	dftblout=data_run_part_out[,c("groupID", "Pos.pA1", "Pos.pA2",
+	data_run_part_out=merge(data_run_part_out,data_gene_info,by="groupID", all.x = TRUE)
+	dftblout=data_run_part_out[,c("groupID", "Pos.pA1", "Pos.pA2","chromosome","strand",
 	"pvalue.pA1",
 	numbercol_PD, RPMcol_PD,REcol_PD, "Log2Ratio.pA1", "Log2Ratio.pA2",
 	"Delta_RA", "type")]
 	dftblout$RED=dftblout$Log2Ratio.pA2-dftblout$Log2Ratio.pA1
-	names(dftblout)[1]="gene_symbol"
-	names(dftblout)[4]="pvalue"
+	names(dftblout)[1:3]=c("gene_symbol","pA_pos_pA1","pA_pos_pA2")
+	names(dftblout)[6]="pvalue"
 	names(dftblout)=gsub('type',paste0('pA1.pAutype_',sample_t[i],'_',sample_c[i]),names(dftblout))
 	names(dftblout)=gsub('.pA1','_pA1',names(dftblout))
 	names(dftblout)=gsub('.pA2','_pA2',names(dftblout))
