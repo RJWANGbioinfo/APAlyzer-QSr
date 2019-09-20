@@ -177,6 +177,10 @@ Sample file are only need when Reps='YES'. This file is a two-column table conta
 | chromosome | chromosome ID of PAS |
 | pA_pos | genomic position of PAS |
 | strand | strand information of PAS |
+| GENEID | Entrez Gene ID |
+| gene_symbol | gene symbol |
+| gene_desc | gene name description |
+| gene_Biotype | type of the gene, protein-coding or various types of ncRNAs |
 | LOCATION | Specific PAS annotation for ncRNAs, including 5'exon, 3'exon, singel(S) exon, other exon and intron  |
 | region | PAS location in annotated genes, including 5'UTR, CDS, intron, 3'UTR and various types of ncRNAs. |
 | pAtype_1 | PAS location in annotated genes, including 5'UTR, CDS, intron, 3'UTR and various types of ncRNAs. For PASs in 3'UTRs, they are further divided into First (F), Middle (M), and Last (L). If there is only one PAS in 3'UTR, it is called S. |
