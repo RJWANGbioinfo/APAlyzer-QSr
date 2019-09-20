@@ -157,7 +157,7 @@ Sample file are only need when Reps='YES'. This file is a two-column table conta
 
 
 ## Output
-The output of the toolkits convering different files in different folders:
+#### 1. The output of the toolkits convering different files in different folders:
 
 | File | Folder | Note |
 | --- | --- | --- |
@@ -169,6 +169,20 @@ The output of the toolkits convering different files in different folders:
 | 3mostAPA.*.DRPM.fix.tbl | rootdir/project/tbl/3UTR/ | 3'UTR APA results |
 | UPS.*.cut2.tbl | rootdir/project/tbl/UPS/ | Upstream APA results |
 | *.png | rootdir/project/plot/ | Scatter plots of 3'UTR and UPS APA |
+
+#### 2. Columns of *.pA2gene_usage.DRPM.fix.tbl:
+| Column | Description |
+| --- | --- |
+| pAid | ID of each PAS, shown as chromosome:Position:Strand |
+| chromosome | chromosome ID of PAS |
+| pA_pos | genomic position of PAS |
+| strand | strand information of PAS |
+| LOCATION | Specific PAS annotation for ncRNAs, including 5'exon, 3'exon, singel(S) exon, other exon and intron  |
+| region | PAS location in annotated genes, including 5'UTR, CDS, intron, 3'UTR and various types of ncRNAs. |
+| pAtype_1 | PAS location in annotated genes, including 5'UTR, CDS, intron, 3'UTR and various types of ncRNAs. For PASs in 3'UTRs, they are further divided into First (F), Middle (M), and Last (L). If there is only one PAS in 3'UTR, it is called S. |
+| ext | Whether PAS is located on an extended 3' end region beyond RefSeq/Ensembl annotations, the extrension region is annotated by polyA_DB3, Yes/No |
+| num_* | reads count columns of each sample |
+| DRPM_* | normalized expression columns count columns of each sample |
 
 
 ## Run-the-Toolkit-Step-by-Step
