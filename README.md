@@ -275,3 +275,13 @@ Rscript scripts/step7_2.qcREV.UR.APA.tbler.reps.R $rootdir $project $samplefile 
 python scripts/step8_1.qcREV.3UTR.scatter.plotter.py --project $project --rootdir $rootdir --control $controls --treatment $treats
 python scripts/step8_2.qcREV.UPS.scatter.plotter.py --project $project --rootdir $rootdir --control $controls --treatment $treats
 ```
+
+#### 8. calculate nucleotide frequency of PAS regions
+```
+Rscript $scrdir/step9.ACGT_FREQ.R $rootdir/$project/tbl/ $geno
+```
+
+#### 9. motif enrichment of PAS regions
+```
+Rscript $scrdir/step10.motif_enrichment.R $rootdir/$project/tbl/ $geno
+```
