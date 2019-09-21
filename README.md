@@ -172,6 +172,7 @@ Sample file are only need when Reps='YES'. This file is a two-column table conta
 | PAS.nuc_freq.diff_vs_NC.xlsx | rootdir/project/tbl/ | nucleotide frequency (+/- 150 nt from PAS) of the sites that are changing vs same number of sites that do not change |
 | *.motif_enrichment.diff_vs_NC.xlsx | rootdir/project/plot/ | motif enrichment (4-mers and 6-mers) within +/- 150 nts of the PAS of the sites that are changing vs sites that do not change |
 
+
 #### 2. Columns of *.pA2gene_usage.DRPM.fix.tbl:
 | Column | Description |
 | --- | --- |
@@ -189,6 +190,38 @@ Sample file are only need when Reps='YES'. This file is a two-column table conta
 | ext | Whether PAS is located on an extended 3' end region beyond RefSeq/Ensembl annotations, the extrension region is annotated by polyA_DB3, Yes/No |
 | num_* | reads count columns of each sample |
 | DRPM_* | normalized expression columns count columns of each sample |
+
+
+#### 3. Columns of 3mostAPA.*.DRPM.fix.tbl:
+| Column | Description |
+| --- | --- |
+| gene_symbol | gene symbol |
+| chromosome | chromosome ID of PAS |
+| strand | strand information of PAS |
+| pA_pos_pA1 | genomic position of proximal PAS |
+| pA_pos_pA2 | genomic position of distal PAS |
+| pvalue | p-value of alternative polyadenylation |
+| num_* | reads count columns of each sample |
+| DRPM_* | normalized expression columns count columns of each sample |
+| RE_* | Relative expression of each gene in each sample, RE=distal/proximal |
+| Log2Ratio_pA1 | log2FC of proximal PAS between two groups |
+| Log2Ratio_pA2 | log2FC of distal PAS between two groups |
+| Delta_RA | Delta Relative abundance |
+| RED | Delta Relative expression, RED=Log2Ratio_pA2 - Log2Ratio_pA1  |
+| pA1.pAutype | alternative polyadenylation pattern, 'UP' for shortening, 'DN' for lengthening, 'NC' for no change |
+
+
+#### 4. PAS Region definitions in 'PAS.nuc_freq.diff_vs_NC.xlsx' and '*.motif_enrichment.diff_vs_NC.xlsx':
+| Region | Range | PAS |
+| --- | --- | --- |
+| prx_region_1 | -150 ~ -51 | proximal PAS |
+| prx_region_2 | -50 ~ -1 | proximal PAS |
+| prx_region_3 | +1 ~ +50 | proximal PAS |
+| prx_region_4 | +51 ~ +150 | proximal PAS |
+| dis_region_1 | -150 ~ -51 | distal PAS |
+| dis_region_2 | -50 ~ -1 | distal PAS |
+| dis_region_3 | +1 ~ +50 | distal PAS |
+| dis_region_4 | +51 ~ +150 | distal PAS |
 
 
 ## Run-the-Toolkit-Step-by-Step
