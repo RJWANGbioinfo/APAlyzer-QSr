@@ -52,4 +52,12 @@ echo "--------------step8 Plot call 3'UTR and UR APA----------------"
 python $scrdir/step8_1.qcREV.3UTR.scatter.plotter.py --project $project --rootdir $rootdir --control $controls --treatment $treats
 python $scrdir/step8_2.qcREV.UPS.scatter.plotter.py --project $project --rootdir $rootdir --control $controls --treatment $treats
 
+###Step9 calculate nucleotide frequency of PAS regions ####
+echo "--------------Step9 calculate nucleotide frequency of PAS regions----------------"
+Rscript $scrdir/step9.ACGT_FREQ.R $rootdir/$project/tbl/ $geno
+
+###Step10 motif enrichment of PAS regions ####
+echo "--------------Step10 motif enrichment of PAS regions----------------"
+Rscript $scrdir/step10.motif_enrichment.R $rootdir/$project/tbl/ $geno
+
 
