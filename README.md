@@ -169,6 +169,8 @@ Sample file are only need when Reps='YES'. This file is a two-column table conta
 | 3mostAPA.*.DRPM.fix.tbl | rootdir/project/tbl/3UTR/ | 3'UTR APA results |
 | UPS.*.cut2.tbl | rootdir/project/tbl/UPS/ | Upstream APA results |
 | *.png | rootdir/project/plot/ | Scatter plots of 3'UTR and UPS APA |
+| PAS.nuc_freq.diff_vs_NC.xlsx | rootdir/project/tbl/ | nucleotide frequency (+/- 150 nt from PAS) of the sites that are changing vs same number of sites that do not change |
+| *.motif_enrichment.diff_vs_NC.xlsx | rootdir/project/plot/ | motif enrichment (4-mers and 6-mers) within +/- 150 nts of the PAS of the sites that are changing vs sites that do not change |
 
 #### 2. Columns of *.pA2gene_usage.DRPM.fix.tbl:
 | Column | Description |
