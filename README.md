@@ -20,7 +20,7 @@ APAlyzer-QSr is a automatic toolkit performing APA analysis using Quant-Seq REV 
 * **Bin Tian**
 
 ### License
-This project is licensed under the LGPL-3 License.
+If you plan to use the APAlyzer-QSr for-profit, you will need to purchase a license. Please contact rjwang.bioinfo@gmail.com for more information.
 
 ### Languages
 Python 3 and R
